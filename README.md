@@ -8,4 +8,4 @@ Instructions for project compilation and execution:
 7) Extract it
 8) Using command line go to extracted folder with project
 9) Input in command line following: "mvn clean compile assembly:single"
-10) Go to folder "target" and input: "java -jar *.jar" (* - name of jar files)
+10) Go to folder "target" and input: "java -jar \*.jar" (\* - name of jar files)
