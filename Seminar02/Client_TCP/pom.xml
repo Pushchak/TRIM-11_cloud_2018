@@ -11,7 +11,7 @@
 		<configuration>
 			<archive>
 				<manifest>
-					<mainClass>MyMain</mainClass>
+					<mainClass>Main</mainClass>
 				</manifest>
 			</archive>
 			<descriptorRefs>
