@@ -1,5 +1,6 @@
 package Seminar04.SOAPmvn;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -52,7 +53,24 @@ public class Soap implements Connector {
 			@Override
 			public void run() {
 				try {
-					serverProxy.receiveFile(sessionId);
+					byte[] fileByte;
+					FileInfo incomFile = serverProxy.receiveFile(sessionId);
+					if(incomFile !=null) {
+						
+						System.out.println("Incomming file: "+incomFile.getFilename()+" from "+incomFile.getSender());
+						fileByte = incomFile.getFileContent();
+						
+						Path pathToSaveFiles = FileSystems.getDefault().getPath(System.getProperty("user.home") + "/Desktop/"+incomFile.getFilename());
+						System.out.println("File saved to \""+pathToSaveFiles+"\"");
+						try {
+							Files.write(pathToSaveFiles, fileByte);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					
+					
 				} catch (ArgumentFault e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -156,7 +174,7 @@ public class Soap implements Connector {
 			e.printStackTrace();
 		} catch (ServerFault e) {
 			System.out.println("invalid password");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return sessionId;
 	}
@@ -208,25 +226,33 @@ public class Soap implements Connector {
 		private void SendFile(String sessionId, String receiver, String pathToFile) {
 			file.setReceiver(receiver);
 			Serialization ser = new Serialization();
-			Path path = FileSystems.getDefault().getPath(pathToFile);
-			file.setFilename(path.getFileName().toString());
-			byte[] fileByte;
-			try {
-				fileByte = Files.readAllBytes(path);
-				file.setFileContent(fileByte);
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			File f = new File (pathToFile);
+			if(f.exists()) {
+				Path path = FileSystems.getDefault().getPath(pathToFile);
+				
+				file.setFilename(path.getFileName().toString());
+				
+				byte[] fileByte;
+				try {
+					fileByte = Files.readAllBytes(path);
+					file.setFileContent(fileByte);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				try {
+					serverProxy.sendFile(sessionId, file);
+				} catch (ArgumentFault e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ServerFault e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else {
+				System.out.println("Problems with file access");
 			}
 			
-			try {
-				serverProxy.sendFile(sessionId, file);
-			} catch (ArgumentFault e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ServerFault e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 }
