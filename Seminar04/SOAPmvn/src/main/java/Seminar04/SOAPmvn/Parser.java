@@ -1,12 +1,14 @@
 package Seminar04.SOAPmvn;
 
 public class Parser {
-	String[] request;
+	public String[] request;
+	private String[] userIn;
+	private StringBuilder sb;
 	
 	public String[] Parse(String command) {
 		request = null;
-		String[] userIn = WorldWithoutSpace(command);
-		StringBuilder sb;
+		userIn = WorldWithoutSpace(command);
+		
 		
 		switch(userIn[0]){
 		case "ping":{

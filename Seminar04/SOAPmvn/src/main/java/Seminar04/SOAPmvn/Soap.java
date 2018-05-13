@@ -14,18 +14,18 @@ import java.util.TimerTask;
 import lpi.server.soap.*;
 
 public class Soap implements Connector {
-	String command;
-	String requestCommand;
-	String sessionId;
-	Parser parser = new Parser();
-	String[] parseCommand;
-	boolean loginStatus = false;
-	ChatServer serverWrapper = new ChatServer();
-	IChatServer serverProxy = serverWrapper.getChatServerProxy();
-	Message mess = new Message();
-	Timer timer;
-	FileInfo file = new FileInfo();
-	Scanner scan = new Scanner(System.in);
+	private String command;
+	private String requestCommand;
+	private String sessionId;
+	private Parser parser = new Parser();
+	private String[] parseCommand;
+	private boolean loginStatus = false;
+	private ChatServer serverWrapper = new ChatServer();
+	private IChatServer serverProxy = serverWrapper.getChatServerProxy();
+	public Message mess = new Message();
+	private Timer timer;
+	private FileInfo file = new FileInfo();
+	private Scanner scan = new Scanner(System.in);
 	
 	private TimerTask createNewMsgTask() {
 		return new TimerTask() {
@@ -76,7 +76,6 @@ public class Soap implements Connector {
 			command = scan.nextLine().trim();
 			parseCommand = parser.Parse(command);
 			
-			System.out.println(Arrays.toString(parseCommand));
 			
 			if (parseCommand != null) {
 				if (parseCommand[0].equals("ping")) {
