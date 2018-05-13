@@ -1,4 +1,4 @@
-package Seminar02.Client_TCP;
+package Seminar02.ClientTCP;
 
 public class Main {
 
