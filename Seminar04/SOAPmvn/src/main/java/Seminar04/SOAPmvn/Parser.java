@@ -5,9 +5,9 @@ public class Parser {
 	private String[] userIn;
 	private StringBuilder sb;
 	
-	public String[] Parse(String command) {
+	public String[] parse(String command) {
 		request = null;
-		userIn = WorldWithoutSpace(command);
+		userIn = worldWithoutSpace(command);
 		
 		
 		switch(userIn[0]){
@@ -87,7 +87,7 @@ public class Parser {
 	}
 	
 //===========================================================
-	private String[] WorldWithoutSpace(String userInput) {
+	private String[] worldWithoutSpace(String userInput) {
 		String[] T;
 		int count = 0;
 		T = userInput.split(" ");

@@ -83,7 +83,7 @@ public class Soap implements Connector {
 	}
 
 	@Override
-	public void ConnectAndWork() {
+	public void connectAndWork() {
 		
 		System.out.println("Client connect...");
 		System.out.println("Enter the command:");	
@@ -92,7 +92,10 @@ public class Soap implements Connector {
 		
 		while (true) {
 			command = scan.nextLine().trim();
-			parseCommand = parser.Parse(command);
+			if(command.length() > 0) {
+				parseCommand = parser.parse(command);
+			}
+			
 			
 			
 			if (parseCommand != null) {
