@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		RMI rmi = new RMI();
 		try {
-			rmi.ConnectAndWork();
+			rmi.connectAndWork();
 		} catch (NotBoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

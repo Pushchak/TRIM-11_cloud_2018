@@ -8,8 +8,8 @@ public class ParseCommand {
 		this.rmi = rmi;
 	}
 
-	public String[] ParseRequest(String requestCommand) {
-		String[] userIn = WorldWithoutSpace(requestCommand);
+	public String[] parseRequest(String requestCommand) {
+		String[] userIn = worldWithoutSpace(requestCommand);
 		StringBuilder sb;
 		request = null;
 		if (userIn.length >= 1) {
@@ -106,7 +106,7 @@ public class ParseCommand {
 	}
 
 	// ===========================================================
-	private String[] WorldWithoutSpace(String userInput) {
+	private String[] worldWithoutSpace(String userInput) {
 		String[] T;
 		int count = 0;
 		T = userInput.split(" ");

@@ -95,7 +95,7 @@ public class RMI implements Connector {
 	}
 
 	@Override
-	public void ConnectAndWork() throws NotBoundException {
+	public void connectAndWork() throws NotBoundException {
 
 		try {
 			
@@ -110,7 +110,7 @@ public class RMI implements Connector {
 			while (true) {
 				scan = new Scanner(System.in);
 				requestCommand = scan.nextLine().trim();
-				req = execute.ParseRequest(requestCommand);
+				req = execute.parseRequest(requestCommand);
 
 				if (req != null) {
 					if (req[0].equals("ping")) {
