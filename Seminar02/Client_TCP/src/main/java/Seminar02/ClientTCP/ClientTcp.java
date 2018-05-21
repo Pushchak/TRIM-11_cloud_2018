@@ -27,7 +27,7 @@ public class ClientTcp implements Connector {
 	
 	
 	@Override
-	public void ConnectAndWork() throws ConnectException {
+	public void connectAndWork() throws ConnectException {
 		try {
 			socketClient = new Socket("localhost",4321);
 			inputReader = new DataInputStream(socketClient.getInputStream());
@@ -48,10 +48,10 @@ public class ClientTcp implements Connector {
 				length = request.length;
 				
 				//Sending command
-				Send(length,request);
+				send(length,request);
 				
 				//Reading answer
-				byte[] res = Receive();
+				byte[] res = receive();
 				String Response_STR = exAnalyz.parseResponse(userInput,res);
 				if(Response_STR!=null) {
 					System.out.println(Response_STR);
@@ -68,7 +68,7 @@ public class ClientTcp implements Connector {
 	}
 
 	@Override
-	public synchronized void Send(int length, byte[] requestBody) {
+	public synchronized void send(int length, byte[] requestBody) {
 
 			try {
 				outWriter.writeInt(length);
@@ -83,7 +83,7 @@ public class ClientTcp implements Connector {
 	}
 
 	@Override
-	public synchronized byte[] Receive() {
+	public synchronized byte[] receive() {
 		int responseSize;
 		byte[] responseContent = null;
 		try {
@@ -98,7 +98,7 @@ public class ClientTcp implements Connector {
 	}
 
 	@Override
-	public void Disconnect() {
+	public void disconnect() {
 		if(inputReader!=null) {
 			try {
 				inputReader.close();

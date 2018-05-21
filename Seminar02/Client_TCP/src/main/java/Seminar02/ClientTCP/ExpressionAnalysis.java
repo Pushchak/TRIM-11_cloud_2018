@@ -121,7 +121,7 @@ public class ExpressionAnalysis implements Parser {
 			break;
 		}
 		case "exit": {
-			socketClient.Disconnect();
+			socketClient.disconnect();
 			System.out.println("Ñlient disconnected.");
 			break;
 		}

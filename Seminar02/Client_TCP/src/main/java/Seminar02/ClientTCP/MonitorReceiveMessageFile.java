@@ -27,15 +27,15 @@ public class MonitorReceiveMessageFile extends Thread {
 			while (true) {
 
 				byte[] reqMsg = new byte[] {25};
-				client.Send(1, reqMsg);
+				client.send(1, reqMsg);
 
-				byte[] resp = client.Receive();
+				byte[] resp = client.receive();
 				processResponse(resp);
 				Thread.sleep(200);
 				
 				byte[] reqFile = new byte[] {30};
-				client.Send(1, reqFile);
-				resp = client.Receive();
+				client.send(1, reqFile);
+				resp = client.receive();
 				processResponse(resp);
 				Thread.sleep(200);
 				

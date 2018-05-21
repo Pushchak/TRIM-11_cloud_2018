@@ -5,9 +5,9 @@ import java.net.ConnectException;
 
 public interface Connector {
 	
-	void ConnectAndWork() throws ConnectException;
-	void Send(int length, byte[] requestBody);
-	byte[] Receive();
-	void Disconnect();
+	void connectAndWork() throws ConnectException;
+	void send(int length, byte[] requestBody);
+	byte[] receive();
+	void disconnect();
 
 }

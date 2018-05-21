@@ -6,7 +6,7 @@ public class Main {
 		ClientTcp client = new ClientTcp();
 		try {
 			
-			client.ConnectAndWork();
+			client.connectAndWork();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
