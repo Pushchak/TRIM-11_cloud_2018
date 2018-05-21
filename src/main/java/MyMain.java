@@ -8,8 +8,8 @@ public class MyMain {
 		System.out.println("Hello World");
 		System.out.println("Enter the command:");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Console_int cons = new Console_int(br.readLine());
-        cons.Print();
+		ConsoleInt cons = new ConsoleInt(br.readLine());
+        cons.print();
 	}
 
 }
