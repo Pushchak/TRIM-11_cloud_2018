@@ -10,4 +10,10 @@ Instructions for project compilation and execution:
     Using command line go to extracted folder with project
     Input in command line following: "mvn clean compile assembly:single"
     Go to folder "target" and input: "java -jar *.jar" (* - name of jar files)
+	
+	
+	
+	Alternative method:
+	
+	Download the project archive from the branch Seminar02 and open in Eclipse
 
