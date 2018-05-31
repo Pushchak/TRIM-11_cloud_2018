@@ -113,7 +113,7 @@ public class ExpressionAnalysis implements Parser {
 					System.out.println("Problems with file access");
 					content = new byte[] {};
 				}
-				
+
 			} else if (userIn.length <= 2) {
 				System.out.println("destination user or/and file path has not been entered");
 			}
