@@ -98,7 +98,7 @@ public class RMI implements Connector {
 	public void connectAndWork() throws NotBoundException {
 
 		try {
-			
+
 			registry = LocateRegistry.getRegistry("localhost", 4321);
 			proxy = (IServer) registry.lookup(IServer.RMI_SERVER_NAME);
 			System.out.println("Client connecting... Enter \"info\" to view available commands");
@@ -164,13 +164,13 @@ public class RMI implements Connector {
 								file = new FileInfo();
 								FileInfo fileInfo = new FileInfo(receiver, "semen", filename, content);
 								proxy.sendFile(sessionId, fileInfo);
-							}catch(java.nio.file.NoSuchFileException ex) {
+							} catch (java.nio.file.NoSuchFileException ex) {
 								System.out.println("Error path to file");
-							}catch (IOException e) {
+							} catch (IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-						
+
 						}
 					} else if ((req[0].equals("exit") || req[0].equals("list") || req[0].equals("msg"))
 							&& sessionId == null) {
@@ -178,9 +178,9 @@ public class RMI implements Connector {
 					}
 				}
 			}
-		}catch(java.rmi.ConnectException rmi) {
+		} catch (java.rmi.ConnectException rmi) {
 			System.out.println("Server is not available");
-		}catch (RemoteException e) {
+		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
