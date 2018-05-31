@@ -85,8 +85,10 @@ public class Soap implements Connector {
 	@Override
 	public void connectAndWork() {
 		
-		System.out.println("Client connect...");
-		System.out.println("Enter the command:");	
+		System.out.println("Client connecting... Enter \"info\" to view available commands");
+		System.out.println("Enter the command:");
+		
+		
 		
 	
 		

@@ -79,6 +79,10 @@ public class Parser {
 			request = new String[] { userIn[0]};
 			break;
 		}
+		case "info": {
+			PrintInfo();
+			break;
+		}
 		default:{
 			System.out.println("Command not found. Reentered command");
 		}
@@ -106,4 +110,18 @@ public class Parser {
 		}
 		return tem;
 	}	
+	
+//=======================================================================
+	private void PrintInfo() {
+		System.out.println("___________________________________________________");
+		System.out.println("ping");
+		System.out.println("echo <any text>");
+		System.out.println("list");
+		System.out
+				.println("login <login> <password>                   (login and password must be without whitespace)");
+		System.out.println("msg <destination user> <text>              (destionation user must be without whitespace)");
+		System.out.println("file <destination user> <path to file>     (destionation user must be without whitespace)");
+
+	}
+
 }
