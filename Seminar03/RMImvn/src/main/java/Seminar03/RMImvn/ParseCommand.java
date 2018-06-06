@@ -23,8 +23,8 @@ public class ParseCommand {
 					request = new String[] { userIn[0], "<empty text>" };
 				} else {
 					sb = new StringBuilder(requestCommand);
-					String parameter_STR = sb.delete(0, userIn[0].length()).toString().trim();
-					request = new String[] { userIn[0], parameter_STR };
+					String parameterStr = sb.delete(0, userIn[0].length()).toString().trim();
+					request = new String[] { userIn[0], parameterStr };
 				}
 				break;
 			}
